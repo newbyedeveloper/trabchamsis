@@ -6,7 +6,6 @@
 _Bool KERN_MODE = 0;
 
 //Estruturas para passagem de parametros entre lib e nucleo
-
 int SYSCALL_NUMBER;
 struct ST_Read_Params READ_PARAMS;
 struct ST_Write_Params WRITE_PARAMS;
@@ -46,7 +45,7 @@ void sys_read(long begin, long end)
 	int read_size;
 
 	//Abrindo arquivo
-	file = fopen("arquivo.txt", "r");
+	file = fopen("../Modo_Nucleo/arquivo.txt", "r");
 
 	//Posicionando para leitura
 	fseek(file, begin, SEEK_SET);
@@ -79,7 +78,7 @@ void sys_write(char *write_buffer, int write_size)
 	FILE *file;
 	
 	//Abrindo arquivo
-	file = fopen("arquivo.txt", "a");
+	file = fopen("../Modo_Nucleo/arquivo.txt", "a");
 
 	//Efetuando escrita
 	fwrite(write_buffer, sizeof(char), write_size, file);
